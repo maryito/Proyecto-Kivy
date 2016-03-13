@@ -1,0 +1,44 @@
+Registro:
+<Registro>:	
+	precio_comida: precio
+	lista_pedido: pedido
+	total_consumido: pagar
+	orientation: 'vertical'
+	spacing: 10
+	Label:
+		text: "Restaurante Olive Garden"	
+		font_size: 60
+	BoxLayout:	
+		orientation: 'vertical'	
+		spacing: 10	
+		Label:
+			text: 'Menu'
+		Button:
+			text: 'Spaguetti con salsa roja'
+			on_press: root.menu('Spaguetti con salsa roja')
+		Button:
+			text: "Pizza de pepperoni"
+			on_press: root.menu("Pizza de pepperoni")
+		Button:
+			text: "Camarones"
+			on_press: root.menu( "Camarones")
+	TextInput:
+		text: 'precio'
+		id: precio
+		font_size: 70
+		size_hint:(.5, .75)
+		pos_hint:{'center_x': .5,'center_y': .5}
+	BoxLayout:
+		spacing: 20
+		ListView:
+			id: pedido
+			item_strings:["pedidos"]
+			
+		Label:
+			text: "TOTAL A PAGAR"
+			size_hint_x: .15
+		TextInput:		 	 
+			id: pagar
+			text: '$ '
+			size_hint_x: .25
+			font_size: 35

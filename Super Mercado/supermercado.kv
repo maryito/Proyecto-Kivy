@@ -1,0 +1,62 @@
+<ScreenManager>:
+	pro:pro
+	codigo:codigo
+	costo:costo
+	busquedad:busquedad
+	producto:""
+	precio: ""
+	Screen:	
+		name: 'ingreso'
+		canvas:
+	        Color:
+	            rgba: 109/255., 8/255., 57/255., 1
+	        Rectangle:
+	            pos: self.pos
+	            size: self.size  
+		BoxLayout:
+			orientation: 'vertical'
+			Label:
+				text: 'SUPERMERCADO HOLAN'
+			GridLayout:
+				cols: 1
+				Label:
+					text: 'PRODUCTO'
+				TextInput:
+					id: pro
+				Label:
+					text: 'CODIGO DE BARRA'
+				TextInput:
+					id: codigo
+				Label:
+					text: 'PRECIO'
+				TextInput:
+					id: costo
+			Button:
+				text: 'GUARDAR'
+				on_release: 
+					root.current=('buscar')
+					root.save()
+	Screen:
+		name: 'buscar'
+		canvas:
+	        Color:
+	            rgba: 0, 1, 0, .5
+	        Rectangle:
+	            pos: self.pos
+	            size: self.size
+	    GridLayout:
+	    	cols: 2	  
+			Button:
+				text: 'Ingrese  Codigo y luego presione para buscar'
+				on_press: root.buscando()
+			TextInput:	
+				id: busquedad		
+			TextInput:
+				text: ""+root.producto
+				disabled: True
+			TextInput:					
+				text: ""+root.precio
+				disabled: True
+			Button:
+				text: 'Agregar Mas Producto'
+				on_press: root.current=('ingreso')
